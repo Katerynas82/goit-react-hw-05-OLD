@@ -4,9 +4,9 @@ import clsx from "clsx";
 
 
 const Navigation = () => {
-  const buildLinkClass = ({ isActive }) => {
-    return clsx(s.link, isActive && s.activeLink);
-  };
+  const buildLinkClass = ({ isActive }) => 
+     clsx(s.link, isActive && s.activeLink);
+  
   return (
     <div className={s.wrapper}>
       <div className={s.navHeader}>
