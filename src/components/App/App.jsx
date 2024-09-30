@@ -1,5 +1,5 @@
-import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
-import Navigation from "../Navigation/Navigation";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import Navigation from "./Navigation/Navigation";
 import { Route, Routes } from "react-router-dom";
 
 const App = () => {
