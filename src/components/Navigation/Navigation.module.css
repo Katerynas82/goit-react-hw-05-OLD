@@ -1,22 +1,16 @@
-.navHeader{
-    position: absolute;
-    top:0;
-    left: 0;
- 
-    display: flex;
-    justify-content: start;
-    gap:20px;
-    padding: 20px;
-    width: 100vw;
-    font-weight: 700;
-    background-color: #9f051c;
-width: 100vh;
-margin: 0;
+.navHeader {
+  display: flex;
+  justify-content: start;
+  gap: 20px;
+  padding: 20px;
+  font-weight: 700;
+  background-color: #ea425b;
+  margin: 0;
 }
-.link{
-    color: aliceblue;
-    font-weight: bold;
+.link {
+  color: aliceblue;
+  font-weight: bold;
 }
-.activeLink{
-    color: black;
+.activeLink {
+  color: black;
 }

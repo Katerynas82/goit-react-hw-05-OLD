@@ -1,32 +1,34 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import MovieList from "../../components/MovieList/MovieList"
-import { fetchMovies } from "../../services/api";
+import { searchMovies } from "../../services/api";
+import s from'../MoviesPage/MoviesPage.module.css';
 
 const MoviesPage = () => {
-
+const [query, setQuery]=useState('');
   const [movies, setMovies] = useState([]);
   
-useEffect(() => {
-  const fetchTopMovies = async () =>
-  { try {
-    const data=await fetchMovies();
-     if (data && data.results) {
-    setMovies (data.results);}
-  }catch (error){
-    console.error("Error fetching movies:",error);
-}};
-
-fetchTopMovies();
-},[]);
+const handleSearch = async (e)=>{
+  e.preventDefault();
+  const results = await searchMovies(query);
+  setMovies(results.results);
+}
 
  return (
-    <div>
-        <h2>Top 15  Movies</h2>
-      <MovieList movies={movies}/>
-
-
-    </div>
-  );
+   <>
+     <div className={s.wrapper}>
+       <form onSubmit={handleSearch}>
+         <input
+           type="text"
+           value={query}
+           onChange={(e) => setQuery(e.target.value)}
+           placeholder="Search movies"
+         />
+         <button type="submit">Search</button>
+       </form>
+     </div>
+     <MovieList movies={movies} />
+   </>
+ );
 };
 
 

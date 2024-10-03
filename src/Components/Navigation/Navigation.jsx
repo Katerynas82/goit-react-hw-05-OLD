@@ -9,10 +9,10 @@ const Navigation = () => {
   
   return (
     <div className={s.wrapper}>
-      <div className={s.navHeader}>
+      <nav className={s.navHeader}>
         <NavLink className={buildLinkClass} to="/"> Home</NavLink>
         <NavLink className={buildLinkClass} to="/movies">Movies</NavLink>
-      </div>
+      </nav>
     </div>
   );
 };
