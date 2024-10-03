@@ -11,7 +11,7 @@ useEffect(() => {
   { try {
     const data=await fetchMovies();
      if (data && data.results) {
-    setMovies (data.results.slice(0,15));}
+    setMovies (data.results);}
   }catch (error){
     console.error("Error fetching movies:",error);
 }};
