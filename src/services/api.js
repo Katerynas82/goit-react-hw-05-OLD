@@ -33,7 +33,7 @@ export const fetchMovieDetails = async (movieId) => {
   const url = `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`;
   try {
     const response = await axios.get(url, AUTH_HEADER);
-    return response.data.results;
+    return response.data;
   } catch (error) {
     console.error("Error fetching movie details:", error);
     throw error;
@@ -66,7 +66,7 @@ export const searchMovies = async (query) => {
   const url = `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`;
   try {
     const response = await axios.get(url, AUTH_HEADER);
-    return response.data.results;
+    return response.data;
   } catch (error) {
     console.error("Error searching movies:", error);
     throw error;

@@ -30,6 +30,7 @@ const App = () => {
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        
       </Suspense>
     </>
   );

@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import { fetchMovieReviews } from "../../services/api";
 import s from '../MovieReviews/MovieReviews.module.css';
+import { useOutletContext } from "react-router-dom";
 
-const MovieReviews = ({movieId}) => {
+const MovieReviews = () => {
+  const { movieId } = useOutletContext();
 
   const [reviews, setReviews] = useState([]);
-  
+
   useEffect(() => {
     fetchMovieReviews(movieId).then(setReviews);
-  },[movieId]);
+  }, [movieId]);
 
   return (
     <div className={s.container}>

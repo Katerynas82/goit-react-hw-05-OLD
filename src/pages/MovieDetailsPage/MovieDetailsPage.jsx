@@ -11,16 +11,27 @@ const MovieDetailsPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchMovieDetails(movieId).then(setMovie);
+    const getMovieDetails = async () => {
+      try {
+        const data = await fetchMovieDetails(movieId);
+        setMovie(data);
+      } catch (error) {
+        console.error("Error fetching movie details:", error);
+      }
+    };
+
+    getMovieDetails();
   }, [movieId]);
   if (!movie) return <p>Loading...</p>;
   return (
     <div className={s.navigate}>
-      <img src={getMovieImageUrl(movie.poster_path)} alt={movie.title}></img>
+      <div>
+        <img src={getMovieImageUrl(movie.poster_path)} alt={movie.title}></img>
+      </div>
       <div className={s.block}>
         <h1>{movie.title}</h1>
         <p>{movie.overview}</p>
-        <button onClick={() => navigate(-1)}>Go Back</button>
+        <button onClick={() => navigate("/")}>Go Back</button>
         <nav className={s.navigate}>
           <Link to="cast">
             <p>Cast</p>
@@ -31,7 +42,7 @@ const MovieDetailsPage = () => {
           </Link>
         </nav>
         <Suspense fallback={<p>Loading...</p>}>
-          <Outlet />
+          <Outlet context={{ movieId }} />
         </Suspense>
       </div>
     </div>
