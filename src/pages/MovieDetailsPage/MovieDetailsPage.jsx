@@ -31,7 +31,7 @@ const MovieDetailsPage = () => {
       <div className={s.block}>
         <h1>{movie.title}</h1>
         <p>{movie.overview}</p>
-        <button onClick={() => navigate("/")}>Go Back</button>
+        <button onClick={() => navigate(-1)}>Go Back</button>
         <nav className={s.navigate}>
           <Link to="cast">
             <p>Cast</p>
